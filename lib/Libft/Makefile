@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 13:02:21 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/08 20:44:46 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/17 20:25:41 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ FILE_C =	ft_isalpha.c		\
 			ft_putnbru.c		\
 			ft_putchar.c		\
 			ft_putstr.c			\
+			ft_chrpos.c			\
+			
 			
 			
 			

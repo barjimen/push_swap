@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:06:42 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/08 23:38:51 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/17 20:25:21 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 char	*get_next_line(int fd);
+
+
+int		ft_chrpos(char *str, char c);
 
 #endif

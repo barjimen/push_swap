@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/16 22:20:24 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/17 19:43:13 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,10 @@
 
 #--- .C
 	
-	SRC_FILES	:=		main  			 	\
+	SRC_FILES	:=		main  			 		\
+						automata/aut_actions	\
+						automata/aut_init		\
+						automata/aut_main		\
 
 #--- File variables
 
