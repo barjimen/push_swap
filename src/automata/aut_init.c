@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:36:59 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/17 20:02:53 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/17 21:45:52 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,22 @@ void init_alphabet(t_automata *a)
 void init_errors(t_automata *a)
 {
     a->errors = malloc(4 * sizeof(char *));
-    a->errors[0] = ft_strdup("Empty argument!\n");
-    a->errors[1] = ft_strdup("sign found at the end!\n");
-    a->errors[2] = ft_strdup("Invalid character!\n");
+    a->errors[0] = ft_strdup("Empty argument!");
+    a->errors[1] = ft_strdup("sign found at the end!");
+    a->errors[2] = ft_strdup("Invalid character!");
     a->errors[3] = NULL;
+    a->errorlen = 2;
 }
 
 void init_simple_actions(t_automata *a)
 {
-    
+    (void)a;
 }
 
 void init_transition_actions(t_automata *a)
 {
-    
+    a->fta[NUMBER][SPACE] = test;
+    //(void)a;
 }
 
 void automata_init(t_automata *a, void *data)
@@ -48,4 +50,5 @@ void automata_init(t_automata *a, void *data)
     init_errors(a);
     init_simple_actions(a);
     init_transition_actions(a);
+    a->get_state = get_state;
 }

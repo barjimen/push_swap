@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/17 19:57:52 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/17 21:45:42 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_automata
 	char	**alphabet;
 	char	**errors;
 	char	*str;
+	int		errorlen;
 	int		state;
 	int		ostate;
 	int		i;
@@ -38,9 +39,20 @@ typedef struct s_automata
 	int		(*get_state)(int state, int abc_idx);
 }			t_automata;
 
+int			get_state(int x, int y);
 int			evaluate(t_automata *a);
 void		automata_init(t_automata *a, void *data);
+int			print_out_error(t_automata *a, int state);
+void		free_aut(t_automata *a);
 
+typedef enum e_states
+{
+	EMPTY,
+	SIGN,
+	INVALID,
+	NUMBER,
+	SPACE
+}	t_states;
 
 void		test(t_automata *a, void *data);
 

@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/17 19:43:13 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/17 21:56:54 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,8 @@ $(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(INCS) | $(OBJF)
 
 $(OBJF):
 			@mkdir -p $(OBJ_DIR)
+			@mkdir -p $(OBJ_DIR)/automata
+			
 			
 clean:
 			@make clean -sC $(LFT_DIR)

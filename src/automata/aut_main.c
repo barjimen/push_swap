@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:39:06 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/17 20:26:14 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/17 20:51:43 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,30 @@ int	evaluate(t_automata *a)
 		a->ostate = a->state;
 	}
 	return (a->state);
+}
+void free_aut(t_automata *a)
+{
+    int i;
+
+    i = 0;
+    while (a->alphabet[i])
+    {
+        free(a->alphabet[i]);
+        i++;
+    }
+    free(a->alphabet);
+    i = 0;
+    while (a->errors[i])
+    {
+        free(a->errors[i]);
+        i++;
+    }
+    free(a->errors);
+}
+
+int print_out_error(t_automata *a, int state)
+{
+    if (state <= a->errorlen)
+        return (ft_printf("%s\n", a->errors[state]));
+    return (0);
 }
