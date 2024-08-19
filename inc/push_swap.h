@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/17 21:45:42 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/19 20:32:47 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ typedef enum e_states
 	NUMBER,
 	SPACE
 }	t_states;
+
+typedef struct s_back_list
+{
+	void			*content;
+	struct s_back_list	*stack_a;
+	struct s_back_list	*next;
+}	t_back_list;
 
 void		test(t_automata *a, void *data);
 

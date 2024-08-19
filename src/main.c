@@ -6,32 +6,35 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/17 21:50:54 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:57:42 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void funct(t_automata *a)
+void	arg_handler(t_automata *a, int argc, char **argv)
 {
-    int state;
-    
-    
-   
-   
-    automata_init(a, NULL);
-    a->str = " -5 -3 -4 ";
-    state = evaluate(a);
-    if (state == NUMBER)
-        test(a, a->data);
-    print_out_error(a, state);
-    free_aut(a);
+	int	state;
+	int	i;
+
+	i = 0;
+	if (argc < 2)
+		return ;
+	while (argv[i])
+	{
+		automata_init(a, NULL);
+		a->str = argv[i++];
+		state = evaluate(a);
+		if (state == NUMBER)
+			test(a, a->data);
+		print_out_error(a, state);
+		free_aut(a);
+	}
 }
 
-int main()
+int	main(int argc, char **argv)
 {
-    t_automata a;
+    t_automata	a;
 
-   funct(&a);
-    
+	arg_handler(&a, argc, argv);
 }

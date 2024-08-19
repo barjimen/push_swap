@@ -6,24 +6,24 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:39:06 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/17 20:51:43 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:43:35 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/push_swap.h"
-
+#include "../../inc/push_swap.h"
 
 //      " ", +-, nb, cualquier otra cosa
-int get_state(int x, int y)
+int	get_state(int x, int y)
 {
-    const int states[][4] = {
-        {0, 1, 3, 2},           // 0 empty
-        {2, 2, 3, 2},           // 1 found sign
-        {2, 2, 2, 2},           // 2 invalid chr
-        {4, 2, 3, 2},           // 3 nb
-        {4, 1, 3, 2},           // 4 space between nb
-    };
-    return (states[x][y]);
+	const int	states[][4] = {
+		{0, 1, 3, 2}, // 0 empty
+		{2, 2, 3, 2}, // 1 found sign
+		{2, 2, 2, 2}, // 2 invalid chr
+		{4, 2, 3, 2}, // 3 nb
+		{4, 1, 3, 2}, // 4 space between nb
+	};
+
+	return (states[x][y]);
 }
 
 int	idx(char *alphabet[], char c)
@@ -52,29 +52,30 @@ int	evaluate(t_automata *a)
 	}
 	return (a->state);
 }
-void free_aut(t_automata *a)
-{
-    int i;
 
-    i = 0;
-    while (a->alphabet[i])
-    {
-        free(a->alphabet[i]);
-        i++;
-    }
-    free(a->alphabet);
-    i = 0;
-    while (a->errors[i])
-    {
-        free(a->errors[i]);
-        i++;
-    }
-    free(a->errors);
+void	free_aut(t_automata *a)
+{
+	int	i;
+
+	i = 0;
+	while (a->alphabet[i])
+	{
+		free(a->alphabet[i]);
+		i++;
+	}
+	free(a->alphabet);
+	i = 0;
+	while (a->errors[i])
+	{
+		free(a->errors[i]);
+		i++;
+	}
+	free(a->errors);
 }
 
-int print_out_error(t_automata *a, int state)
+int	print_out_error(t_automata *a, int state)
 {
-    if (state <= a->errorlen)
-        return (ft_printf("%s\n", a->errors[state]));
-    return (0);
+	if (state <= a->errorlen)
+		return (ft_printf("%s\n", a->errors[state]));
+	return (0);
 }
