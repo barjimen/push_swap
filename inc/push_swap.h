@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/19 20:32:47 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/30 00:45:08 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,18 @@ typedef enum e_states
 	SPACE
 }	t_states;
 
-typedef struct s_back_list
+typedef struct s_stack
 {
-	void			*content;
-	struct s_back_list	*stack_a;
-	struct s_back_list	*next;
-}	t_back_list;
+	int					content;
+	struct s_stack		*prev;
+	struct s_stack		*next;
+}	t_stack;
 
 void		test(t_automata *a, void *data);
+void	print_state(t_automata *a, void *data);
+t_stack	*new_wagon(int content);
+int	stack_size(t_stack *lst);
+t_stack	*last_wagon(t_stack *lst);
+void	add_last_wagon(t_stack **lst, t_stack *new);
 
 #endif

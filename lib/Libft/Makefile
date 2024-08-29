@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 13:02:21 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/17 20:25:41 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/29 23:13:26 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,15 @@ FILE_C =	ft_isalpha.c		\
 			ft_putchar.c		\
 			ft_putstr.c			\
 			ft_chrpos.c			\
-			
+			ft_lstnew_bonus.c		\
+			ft_lstadd_front_bonus.c	\
+			ft_lstsize_bonus.c		\
+			ft_lstlast_bonus.c		\
+			ft_lstadd_back_bonus.c	\
+			ft_lstdelone_bonus.c	\
+			ft_lstclear_bonus.c		\
+			ft_lstiter_bonus.c		\
+			ft_lstmap_bonus.c		\
 			
 			
 			
@@ -85,15 +93,15 @@ ${NAME}: ${FILE_O}
 all: $(NAME)
 
 clean: 
-	rm -f $(FILE_O) $(FILE_O_BONUS)
+	rm -f $(FILE_O)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-bonus: $(FILE_O_BONUS)
-	ar -rcs ${NAME} ${FILE_O} ${FILE_O_BONUS}
-	@#make "FILE_C = $(FILE_C_BONUS)"
+#bonus: $(FILE_O_BONUS)
+#	ar -rcs ${NAME} ${FILE_O} ${FILE_O_BONUS}
+#	@#make "FILE_C = $(FILE_C_BONUS)"
 
 .Phony: all clean fclean re

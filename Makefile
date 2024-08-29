@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/17 21:56:54 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/30 00:45:48 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@
 						automata/aut_actions	\
 						automata/aut_init		\
 						automata/aut_main		\
+						back_list				\
 
 #--- File variables
 
