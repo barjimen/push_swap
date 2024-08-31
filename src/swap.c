@@ -6,13 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 21:51:34 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/31 23:08:39 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/01 01:25:16 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	swap(t_stack *stack, char	name)
+void	swap(t_stack *stack, char name)
 {
 	int	aux;
 
@@ -44,4 +44,25 @@ void	swap_both(t_stack *stack_a, t_stack *stack_b)
 	}
 	else
 		printf("unable to ss\n");
+}
+
+void	push(t_stack **stack_src, t_stack **stack_dst, char name)
+{
+	t_stack	*aux;
+
+	if (*stack_src)
+	{
+		aux = new_wagon((*stack_src)->content);
+		aux->next = *stack_dst;
+		if (aux->next)
+			aux->next->prev = aux;
+		*stack_dst = aux;
+		aux = (*stack_src)->next;
+		free(*stack_src);
+		*stack_src = aux;
+		(*stack_src)->prev = NULL;
+		printf("p%c\n", name);
+	}
+	else
+		printf("unable to p%c\n", name);
 }

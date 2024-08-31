@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/31 23:01:30 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/01 01:24:26 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,41 @@ int	main(int argc, char **argv)
 {
     t_automata	a;
 	t_stack *stack_a;
+	t_stack *stack_b;
 	t_stack *aux;
 	
 	stack_a = NULL;
+	stack_b = NULL;
 	arg_handler(&a, argc, argv, &stack_a);
-	swap(stack_a, 'a');
+	//swap(stack_a, 'a');
+	push(&stack_a, &stack_b, 'b');
+	push(&stack_a, &stack_b, 'b');
+	push(&stack_a, &stack_b, 'b');
+
 	aux = stack_a;
+	printf("STACK A:\n");
 	while (stack_a)
 	{
-    	printf("Numb is: %d\n", stack_a->content);
+		printf("----------------NEW NODE---------------\n");
+		printf("adress	is: %p\n", stack_a);
+    	printf("Numb	is: %d\n", stack_a->content);
+		printf("padress	is: %p\n", stack_a->prev);
+		printf("nadress	is: %p\n", stack_a->next);
     	stack_a = stack_a->next;
 	}
 	stack_a = aux;
+	aux = stack_b;
+	printf("STACK B:\n");
+	while (stack_b)
+	{
+    	printf("----------------NEW NODE---------------\n");
+		printf("adress	is: %p\n", stack_b);
+    	printf("Numb	is: %d\n", stack_b->content);
+		printf("padress	is: %p\n", stack_b->prev);
+		printf("nadress	is: %p\n", stack_b->next);
+    	stack_b = stack_b->next;
+	}
+	stack_b = aux;
 	free_stack(&stack_a);
+	free_stack(&stack_b);
 }
