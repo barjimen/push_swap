@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 13:02:21 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/29 23:13:26 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/31 22:27:48 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,20 +65,8 @@ FILE_C =	ft_isalpha.c		\
 			ft_lstclear_bonus.c		\
 			ft_lstiter_bonus.c		\
 			ft_lstmap_bonus.c		\
+			ft_swap.c				\
 			
-			
-			
-
-FILE_C_BONUS =	ft_lstnew_bonus.c		\
-				ft_lstadd_front_bonus.c	\
-				ft_lstsize_bonus.c		\
-				ft_lstlast_bonus.c		\
-				ft_lstadd_back_bonus.c	\
-				ft_lstdelone_bonus.c	\
-				ft_lstclear_bonus.c		\
-				ft_lstiter_bonus.c		\
-				ft_lstmap_bonus.c		\
-
 
 FILE_O = ${FILE_C:.c=.o}
 FILE_O_BONUS = ${FILE_C_BONUS:.c=.o}

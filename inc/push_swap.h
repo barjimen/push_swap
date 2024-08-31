@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/30 00:45:08 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/31 23:09:05 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,7 @@ t_stack	*new_wagon(int content);
 int	stack_size(t_stack *lst);
 t_stack	*last_wagon(t_stack *lst);
 void	add_last_wagon(t_stack **lst, t_stack *new);
+void	swap(t_stack *stack, char	name);
+void	swap_both(t_stack *stack_a, t_stack *stack_b);
 
 #endif

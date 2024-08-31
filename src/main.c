@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/30 01:08:32 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/31 23:01:30 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 	
 	stack_a = NULL;
 	arg_handler(&a, argc, argv, &stack_a);
+	swap(stack_a, 'a');
 	aux = stack_a;
 	while (stack_a)
 	{

@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/08/30 00:45:48 by barjimen         ###   ########.fr        #
+#    Updated: 2024/08/31 22:52:43 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@
 						automata/aut_init		\
 						automata/aut_main		\
 						back_list				\
+						swap					\
 
 #--- File variables
 

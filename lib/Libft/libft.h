@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:06:42 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/17 20:25:21 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/08/31 22:27:24 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ char	*get_next_line(int fd);
 
 
 int		ft_chrpos(char *str, char c);
+void	ft_swap(void *a, void *b);
 
 #endif
