@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/01 21:15:27 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/01 22:01:41 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	rotate_first(t_stack **stack_src, char name, int print);
 void	rotate_both_first(t_stack **stack_a, t_stack **stack_b);
 void	rotate_last(t_stack **stack_src, char name, int print);
 void	rotate_both_last(t_stack **stack_a, t_stack **stack_b);
+void 	check_list(t_stack **stack_src);
 
 #endif

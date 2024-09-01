@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/09/01 21:10:29 by barjimen         ###   ########.fr        #
+#    Updated: 2024/09/01 22:02:21 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@
 						automata/aut_main		\
 						back_list				\
 						swap					\
-						rotate
+						rotate					\
+						check_list
 
 #--- File variables
 
