@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/01 01:24:26 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/01 21:17:25 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ int	main(int argc, char **argv)
 	push(&stack_a, &stack_b, 'b');
 	push(&stack_a, &stack_b, 'b');
 	push(&stack_a, &stack_b, 'b');
-
+	//rotate_first(&stack_a, 'a', 1);
+	//rotate_both_first(&stack_a, &stack_b);
+	rotate_both_last(&stack_a,&stack_b);
 	aux = stack_a;
 	printf("STACK A:\n");
 	while (stack_a)
