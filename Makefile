@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/09/01 22:02:21 by barjimen         ###   ########.fr        #
+#    Updated: 2024/09/04 00:34:41 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@
 						back_list				\
 						swap					\
 						rotate					\
-						check_list
+						check_list				\
+						order_nb				
 
 #--- File variables
 

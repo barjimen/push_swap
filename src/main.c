@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/03 23:55:09 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/04 00:38:07 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,23 @@ int	main(int argc, char **argv)
     t_automata	a;
 	t_stack *stack_a;
 	t_stack *stack_b;
-
+	t_stack *aux;
 	
 	stack_a = NULL;
 	stack_b = NULL;
 	arg_handler(&a, argc, argv, &stack_a);
 	check_list(&stack_a);
-
-
-
-
-
-
-
-	t_stack *aux;	
+	order_nb(&stack_a);
+	//swap(stack_a, 'a');
+	//push(&stack_a, &stack_b, 'b');
+	//push(&stack_a, &stack_b, 'b');
+	//push(&stack_a, &stack_b, 'b');
+	//rotate(&stack_a, 'a', 1);
+	//rotate(&stack_a, 'a', 1);
+	//rotate_reverse(&stack_a, 'a', 1);
+	//push(&stack_a, &stack_b, 'b');
+	//rotate_both_first(&stack_a, &stack_b);
+	//rotate_reverse_both(&stack_a,&stack_b);
 	aux = stack_a;
 	printf("STACK A:\n");
 	while (stack_a)
