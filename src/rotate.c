@@ -6,13 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 20:58:24 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/01 21:15:16 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/04 00:10:10 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	rotate_first(t_stack **stack_src, char name, int print)
+void	rotate(t_stack **stack_src, char name, int print)
 {
 	t_stack	*aux;
 	int		i;
@@ -35,17 +35,19 @@ void	rotate_first(t_stack **stack_src, char name, int print)
 		printf("unable to rotate r%c\n", name);
 }
 
-void	rotate_both_first(t_stack **stack_a, t_stack **stack_b)
+void	rotate_both(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_size(*stack_a) > 1 && stack_size(*stack_b) > 1)
 	{
-		rotate_first(stack_a, 'r', 0);
-		rotate_first(stack_b, 'r', 0);
+		rotate(stack_a, 'r', 0);
+		rotate(stack_b, 'r', 0);
 		printf("rr\n");
 	}
+	else
+		printf("unable to rotate both\n");
 }
 
-void	rotate_last(t_stack **stack_src, char name, int print)
+void	rotate_reverse(t_stack **stack_src, char name, int print)
 {
 	int i;
 
@@ -67,12 +69,14 @@ void	rotate_last(t_stack **stack_src, char name, int print)
 		printf("unable to rotate r%c\n", name);
 }
 
-void	rotate_both_last(t_stack **stack_a, t_stack **stack_b)
+void	rotate_reverse_both(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_size(*stack_a) > 1 && stack_size(*stack_b) > 1)
 	{
-		rotate_last(stack_a, 'r', 0);
-		rotate_last(stack_b, 'r', 0);
+		rotate_reverse(stack_a, 'r', 0);
+		rotate_reverse(stack_b, 'r', 0);
 		printf("rrr\n");
 	}
+	else
+		printf("unable to reverse rotate both\n");
 }

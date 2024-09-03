@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/01 22:01:41 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/03 23:52:44 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void	add_last_wagon(t_stack **lst, t_stack *new);
 void	swap(t_stack *stack, char	name);
 void	swap_both(t_stack *stack_a, t_stack *stack_b);
 void	push(t_stack **stack_src, t_stack **stack_dst, char	name);
-void	rotate_first(t_stack **stack_src, char name, int print);
-void	rotate_both_first(t_stack **stack_a, t_stack **stack_b);
-void	rotate_last(t_stack **stack_src, char name, int print);
-void	rotate_both_last(t_stack **stack_a, t_stack **stack_b);
+void	rotate(t_stack **stack_src, char name, int print);
+void	rotate_both(t_stack **stack_a, t_stack **stack_b);
+void	rotate_reverse(t_stack **stack_src, char name, int print);
+void	rotate_reverse_both(t_stack **stack_a, t_stack **stack_b);
 void 	check_list(t_stack **stack_src);
 
 #endif
