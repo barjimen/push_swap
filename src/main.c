@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/04 00:38:07 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/04 22:50:40 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	arg_handler(&a, argc, argv, &stack_a);
 	check_list(&stack_a);
-	order_nb(&stack_a);
+	order_nb(&stack_a, &stack_b);
 	//swap(stack_a, 'a');
 	//push(&stack_a, &stack_b, 'b');
 	//push(&stack_a, &stack_b, 'b');

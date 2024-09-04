@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 00:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/04 21:47:59 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/04 22:57:07 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,31 @@ void	order_three(t_stack *stack_src)
 	nb_three = stack_src->next->next->content;
 	if (nb_one > nb_two && nb_one > nb_three)
 	{
-		swap(stack_src, 'a');
+		rotate(&stack_src, 'a', 1);
 		if (nb_three < nb_one && nb_three < nb_two)
-			rotate_reverse(&stack_src, 'a', 1);
+			swap(stack_src, 'a');
 	}
 	else if (nb_two > nb_one && nb_two > nb_three)
 	{
 		rotate_reverse(&stack_src, 'a', 1);
-		if (nb_one > nb_two && nb_three > nb_two)
+		if (nb_one < nb_three)
 			swap(stack_src, 'a');
 	}
+	else
+		swap(stack_src, 'a');
 }
 
-void	order_nb(t_stack **stack_src)
+void	order_four(t_stack *stack_src, t_stack *stack_dst)
+{
+	
+}
+
+void	order_nb(t_stack **stack_src, t_stack **stack_dst)
 {
 	if (stack_size(*stack_src) == 2)
 		swap(*stack_src, 'a');
 	if (stack_size(*stack_src) == 3)
 		order_three(*stack_src);
+	if (stack_size(*stack_src) == 4)
+		order_four(*stack_src, *stack_dst);
 }
