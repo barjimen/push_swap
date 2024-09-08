@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 21:51:34 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/01 20:58:52 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/08 21:13:46 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	push(t_stack **stack_src, t_stack **stack_dst, char name)
 		aux = (*stack_src)->next;
 		free(*stack_src);
 		*stack_src = aux;
-		(*stack_src)->prev = NULL;
+		if (*stack_src)
+			(*stack_src)->prev = NULL;
 		printf("p%c\n", name);
 	}
 	else
