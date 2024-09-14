@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/08 21:37:10 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/14 13:48:22 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,25 @@ typedef enum e_states
 	SPACE
 }	t_states;
 
+typedef struct s_moves
+{
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	sa;
+	int	sb;
+	int	pa;
+	int	pb;
+}	t_moves;
+
 typedef struct s_stack
 {
 	int					content;
+	int					cost;
+	t_moves				moves;
 	struct s_stack		*prev;
 	struct s_stack		*next;
 }	t_stack;

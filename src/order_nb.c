@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 00:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/08 21:27:45 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/14 17:00:55 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	search_small(t_stack **stack_src)
 void	push_small(t_stack **stack_a, t_stack **stack_b)
 {
 	int	pos;
-	int size;
+	int	size;
 
 	pos = search_small(stack_a);
 	size = stack_size(*stack_a);
@@ -87,7 +87,7 @@ void	order_three(t_stack *stack_src)
 		swap(stack_src, 'a');
 }
 
-void order_four_five(t_stack **stack_a, t_stack **stack_b, int size)
+void	order_four_five(t_stack **stack_a, t_stack **stack_b, int size)
 {
 	if (size == 5)
 		push_small(stack_a, stack_b);
@@ -109,6 +109,6 @@ void	order_nb(t_stack **stack_src, t_stack **stack_dst)
 		order_three(*stack_src);
 	else if (size == 4 || size == 5)
 		order_four_five(stack_src, stack_dst, size);
-	else
-		order_more(stack_src, stack_dst);
+	/*else
+		order_more(stack_src, stack_dst);*/
 }

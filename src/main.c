@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/08 21:20:02 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/14 17:05:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,15 @@ int	main(int argc, char **argv)
     t_automata	a;
 	t_stack *stack_a;
 	t_stack *stack_b;
-	t_stack *aux;
+	//t_stack *aux;
 	
 	stack_a = NULL;
 	stack_b = NULL;
 	arg_handler(&a, argc, argv, &stack_a);
 	check_list(&stack_a);
 	order_nb(&stack_a, &stack_b);
-	//swap(stack_a, 'a');
-	//push(&stack_a, &stack_b, 'b');
-	//push(&stack_a, &stack_b, 'b');
-	//push(&stack_a, &stack_b, 'b');
-	//rotate(&stack_a, 'a', 1);
-	//rotate(&stack_a, 'a', 1);
-	//rotate_reverse(&stack_a, 'a', 1);
-	//push(&stack_a, &stack_b, 'b');
-	//rotate_both_first(&stack_a, &stack_b);
-	//rotate_reverse_both(&stack_a,&stack_b);
-	aux = stack_a;
-	printf("STACK A:\n");
+	//aux = stack_a;
+	/*printf("STACK A:\n");
 	while (stack_a)
 	{
 		printf("----------------NEW NODE---------------\n");
@@ -90,8 +80,8 @@ int	main(int argc, char **argv)
 		printf("padress	is: %p\n", stack_b->prev);
 		printf("nadress	is: %p\n", stack_b->next);
     	stack_b = stack_b->next;
-	}
-	stack_b = aux;
+	}*/
+	//stack_b = aux;
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 }
