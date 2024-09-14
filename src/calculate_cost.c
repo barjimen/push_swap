@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/14 14:05:06 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/14 18:44:07 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	calcular_movimientos(t_stack **stack)
 void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*head_a;
-	t_stack *head_b;
+	t_stack	*head_b;
 	int		pos;
 
 	head_a = *stack_a;
@@ -60,5 +60,12 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 		*stack_a = (*stack_a)->next;
 		pos++;
 	}
+	while (*stack_b)
+	{
+		pos = 0;
+		*stack_b = (*stack_b)->next;
+		pos++;
+	}
 	*stack_a = head_a;
+	*stack_b = head_b;
 }
