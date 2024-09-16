@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/09/04 00:34:41 by barjimen         ###   ########.fr        #
+#    Updated: 2024/09/16 22:32:50 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,9 @@
 						swap					\
 						rotate					\
 						check_list				\
-						order_nb				
+						order_nb				\
+						calculate_cost			\
+						order_more				\
 
 #--- File variables
 

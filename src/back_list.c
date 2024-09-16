@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 00:11:07 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/30 00:34:22 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/16 22:28:27 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack	*new_wagon(int content)
 {
 	t_stack	*memi;
 
-	memi = (t_stack *) malloc(sizeof (t_stack));
+	memi = (t_stack *) ft_calloc(sizeof (t_stack), 1);
 	if (!memi)
 		return (NULL);
 	memi->content = content;

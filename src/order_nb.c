@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 00:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/14 17:00:55 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/16 22:33:43 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ void	order_nb(t_stack **stack_src, t_stack **stack_dst)
 		order_three(*stack_src);
 	else if (size == 4 || size == 5)
 		order_four_five(stack_src, stack_dst, size);
-	/*else
-		order_more(stack_src, stack_dst);*/
+	else
+		order_more(stack_src, stack_dst);
 }

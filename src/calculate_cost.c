@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/16 22:08:41 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/16 22:34:34 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,27 @@ int	calcular_pareja(int a, int b_now, int b_before)
 	return (b_before);
 }
 
-int	calcular_coste_hasta_pareja(t_stack	*stack_a, t_stack *stack_b, int num)
+int	calcular_coste_hasta_pareja(t_stack	**stack_a, t_stack *stack_b, int num)
 {
 	int	cost;
 
 	cost = 1;
-	if (stack_a->moves.ra > 0 || stack_a->moves.rra > 0)
-		cost += stack_a->moves.ra + stack_a->moves.rra;
+	if ((*stack_a)->moves.ra > 0 || (*stack_a)->moves.rra > 0)
+		cost += (*stack_a)->moves.ra + (*stack_a)->moves.rra;
 	while (stack_b)
 	{
 		if (num == stack_b->content)
-			if (stack_a->moves.rb > 0 || stack_a->moves.rrb > 0)
-				cost += stack_a->moves.rb + stack_a->moves.rrb;
+		{
+			if (stack_b->moves.rb > 0 || stack_b->moves.rrb > 0)
+			{
+				cost += stack_b->moves.rb + stack_b->moves.rrb;
+				(*stack_a)->moves.rb = stack_b->moves.rb;
+				(*stack_a)->moves.rrb = stack_b->moves.rrb;
+			}
+		}
 		stack_b = stack_b->next;
 	}
+	(*stack_a)->moves.pb = 1;
 	return (cost);
 }
 
@@ -95,7 +102,7 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 			num = calcular_pareja((*stack_a)->content, (*stack_b)->content, num);
 			*stack_b = (*stack_b)->next;
 		}
-		(*stack_a)->cost = calcular_coste_hasta_pareja(*stack_a, head_b, num);
+		(*stack_a)->cost = calcular_coste_hasta_pareja(stack_a, head_b, num);
 		*stack_b = head_b;
 		*stack_a = (*stack_a)->next;
 		pos++;
