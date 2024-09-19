@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/19 19:57:36 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/20 01:05:18 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,20 @@ void	calcular_movimientos_b(t_stack **stack)
 
 int	calcular_pareja(int a, int b_now, int b_before)
 {
-	if (a > b_before && a < b_now)
-		return (b_before);
+	if (b_before > b_now)
+	{
+		if (a < b_before && a > b_now)
+			return (b_now);
+		else
+			return (b_before);
+	}
 	else
 	{
-		if (b_before > b_now)
+		if (a > b_before && a < b_now)
 			return (b_before);
 		else
 			return (b_now);
 	}
-	return (b_before);
 }
 
 int	calcular_coste_hasta_pareja(t_stack	**stack_a, t_stack *stack_b, int num)
@@ -124,9 +128,11 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 	while (*stack_a)
 	{
 		num = (*stack_b)->content;
+		*stack_b = (*stack_b)->next;
 		while (*stack_b)
 		{
 			num = calcular_pareja((*stack_a)->content, (*stack_b)->content, num);
+			printf("%d ----> %d\n",(*stack_a)->content , num);
 			*stack_b = (*stack_b)->next;
 		}
 		(*stack_a)->cost = calcular_coste_hasta_pareja(stack_a, head_b, num);
