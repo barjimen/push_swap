@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/16 22:34:12 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/19 19:58:00 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ void	order_nb(t_stack **stack_src, t_stack **stack_dst);
 void	order_three(t_stack *stack_src);
 
 void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b);
-void	calcular_movimientos(t_stack **stack);
+void	calcular_movimientos_a(t_stack **stack);
+void	calcular_movimientos_b(t_stack **stack);
 void	order_more(t_stack **stack_a, t_stack **stack_b);
 
 

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/16 22:36:33 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/19 19:52:09 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,15 @@ int	main(int argc, char **argv)
 	while (stack_b)
 	{
     	printf("----------------NEW NODE---------------\n");
-		printf("adress	is: %p\n", stack_b);
+		//printf("adress	is: %p\n", stack_b);
     	printf("Numb	is: %d\n", stack_b->content);
-		printf("padress	is: %p\n", stack_b->prev);
-		printf("nadress	is: %p\n", stack_b->next);
+		//printf("padress	is: %p\n", stack_b->prev);
+		//printf("nadress	is: %p\n", stack_b->next);
+		printf("cost: %d\n", stack_b->cost);
+		printf("ra: %d\n", stack_b->moves.ra);
+		printf("rra: %d\n", stack_b->moves.rra);
+		printf("rb: %d\n", stack_b->moves.rb);
+		printf("rrb: %d\n", stack_b->moves.rrb);
     	stack_b = stack_b->next;
 	}
 	stack_b = aux;

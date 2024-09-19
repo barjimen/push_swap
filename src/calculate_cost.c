@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/16 22:34:34 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/19 19:57:36 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	encontrar_el_mas_barato(a);
 	hacer_los_movimientos(a y b);*/
 
-void	calcular_movimientos(t_stack **stack)
+void	calcular_movimientos_a(t_stack **stack)
 {
 	t_stack	*head;
 	int		size;
@@ -29,7 +29,7 @@ void	calcular_movimientos(t_stack **stack)
 	pos = 0;
 	while (*stack)
 	{
-		if ((size / 2) <= pos)
+		if ((size / 2) >= pos)
 		{
 			(*stack)->moves.ra = pos;
 			(*stack)->moves.rra = 0;
@@ -39,6 +39,33 @@ void	calcular_movimientos(t_stack **stack)
 			//los movimientos que son de mitad para abajo son el tamaño - la posicion (ver dibu ipad :) )
 			(*stack)->moves.rra = (size - pos);
 			(*stack)->moves.ra = 0;
+		}
+		*stack = (*stack)->next;
+		pos++;
+	}
+	*stack = head;
+}
+void	calcular_movimientos_b(t_stack **stack)
+{
+	t_stack	*head;
+	int		size;
+	int		pos;
+
+	head = *stack;
+	size = stack_size(*stack);
+	pos = 0;
+	while (*stack)
+	{
+		if ((size / 2) >= pos)
+		{
+			(*stack)->moves.rb = pos;
+			(*stack)->moves.rrb = 0;
+		}
+		else
+		{
+			//los movimientos que son de mitad para abajo son el tamaño - la posicion (ver dibu ipad :) )
+			(*stack)->moves.rrb = (size - pos);
+			(*stack)->moves.rb = 0;
 		}
 		*stack = (*stack)->next;
 		pos++;
