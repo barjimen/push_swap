@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/20 01:05:18 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/20 21:46:18 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,27 +91,43 @@ int	calcular_pareja(int a, int b_now, int b_before)
 	}
 }
 
+void join_moves(t_stack **stack_a)
+{
+	while ((*stack_a)->moves.ra > 0 && (*stack_a)->moves.rb > 0)
+	{
+		(*stack_a)->moves.rr++;
+		(*stack_a)->moves.ra--;
+		(*stack_a)->moves.rb--;
+	}
+	while ((*stack_a)->moves.rra > 0 && (*stack_a)->moves.rrb > 0)
+	{
+		(*stack_a)->moves.rrr++;
+		(*stack_a)->moves.rra--;
+		(*stack_a)->moves.rrb--;
+	}
+}
+
 int	calcular_coste_hasta_pareja(t_stack	**stack_a, t_stack *stack_b, int num)
 {
 	int	cost;
 
 	cost = 1;
-	if ((*stack_a)->moves.ra > 0 || (*stack_a)->moves.rra > 0)
-		cost += (*stack_a)->moves.ra + (*stack_a)->moves.rra;
+	
 	while (stack_b)
 	{
 		if (num == stack_b->content)
 		{
 			if (stack_b->moves.rb > 0 || stack_b->moves.rrb > 0)
 			{
-				cost += stack_b->moves.rb + stack_b->moves.rrb;
 				(*stack_a)->moves.rb = stack_b->moves.rb;
 				(*stack_a)->moves.rrb = stack_b->moves.rrb;
 			}
 		}
 		stack_b = stack_b->next;
 	}
+	join_moves(stack_a);
 	(*stack_a)->moves.pb = 1;
+	cost = ((*stack_a)->moves.pb + (*stack_a)->moves.ra + (*stack_a)->moves.rra + (*stack_a)->moves.rb + (*stack_a)->moves.rrb + (*stack_a)->moves.rr + (*stack_a)->moves.rrr + (*stack_a)->moves.sa + (*stack_a)->moves.sb);
 	return (cost);
 }
 
@@ -142,4 +158,53 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 	}
 	*stack_a = head_a;
 	*stack_b = head_b;
+}
+
+int encontrar_el_mas_barato(t_stack *stack_a)
+{
+	int before_cost;
+	int nb;
+
+	before_cost = stack_a->cost;
+	nb = stack_a->content;
+	stack_a = stack_a->next;
+	while (stack_a)
+	{
+		if (before_cost > stack_a->cost)
+		{
+			before_cost = stack_a->cost;
+			nb = stack_a->content;
+		}
+		stack_a = stack_a->next;
+	}
+	return (nb);
+}
+
+void mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
+{
+	t_stack *head;
+
+	head = *stack_a;
+	while (*stack_a)
+	{
+		if((*stack_a)->content == nb)
+		{
+			while ((*stack_a)->moves.ra && (*stack_a)->moves.ra--)
+				rotate(stack_a, 'a', 1);
+			while ((*stack_a)->moves.rb && (*stack_a)->moves.rb--)
+				rotate(stack_b, 'b', 1);
+			while ((*stack_a)->moves.rr && (*stack_a)->moves.rr--)
+				rotate_both(stack_a, stack_b);
+			while ((*stack_a)->moves.rra && (*stack_a)->moves.rra--)
+				rotate_reverse(stack_a, 'a', 1);
+			while ((*stack_a)->moves.rrb && (*stack_a)->moves.rrb--)
+				rotate_reverse(stack_b, 'b', 1);
+			while ((*stack_a)->moves.rrr && (*stack_a)->moves.rrr--)
+				rotate_reverse_both(stack_a, stack_b);
+			//push(stack_a, stack_b, 'b');
+		}
+		(*stack_a) = (*stack_a)->next;
+	}
+	*stack_a = head;
+	push(stack_a, stack_b, 'b');
 }

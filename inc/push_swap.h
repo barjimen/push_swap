@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/19 19:58:00 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/20 21:37:58 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,7 @@ void	calcular_movimientos_a(t_stack **stack);
 void	calcular_movimientos_b(t_stack **stack);
 void	order_more(t_stack **stack_a, t_stack **stack_b);
 
+void 	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb);
+int 	encontrar_el_mas_barato(t_stack *stack_a);
 
 #endif

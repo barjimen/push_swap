@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/19 19:52:09 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/20 20:27:54 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	main(int argc, char **argv)
 		printf("rra: %d\n", stack_a->moves.rra);
 		printf("rb: %d\n", stack_a->moves.rb);
 		printf("rrb: %d\n", stack_a->moves.rrb);
+		printf("rr: %d\n", stack_a->moves.rr);
+		printf("rrr: %d\n", stack_a->moves.rrr);		
 		printf("pb: %d\n", stack_a->moves.pb);
     	stack_a = stack_a->next;
 	}
@@ -86,8 +88,8 @@ int	main(int argc, char **argv)
 		//printf("padress	is: %p\n", stack_b->prev);
 		//printf("nadress	is: %p\n", stack_b->next);
 		printf("cost: %d\n", stack_b->cost);
-		printf("ra: %d\n", stack_b->moves.ra);
-		printf("rra: %d\n", stack_b->moves.rra);
+		//printf("ra: %d\n", stack_b->moves.ra);
+		//printf("rra: %d\n", stack_b->moves.rra);
 		printf("rb: %d\n", stack_b->moves.rb);
 		printf("rrb: %d\n", stack_b->moves.rrb);
     	stack_b = stack_b->next;
