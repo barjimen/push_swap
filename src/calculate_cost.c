@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/20 21:46:18 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:16:57 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	calcular_movimientos_a(t_stack **stack)
 		}
 		else
 		{
-			//los movimientos que son de mitad para abajo son el tamaño - la posicion (ver dibu ipad :) )
+			// los movimientos que son de mitad para abajo son el tamaño
+				// la posicion (ver dibu ipad :) )
 			(*stack)->moves.rra = (size - pos);
 			(*stack)->moves.ra = 0;
 		}
@@ -63,7 +64,8 @@ void	calcular_movimientos_b(t_stack **stack)
 		}
 		else
 		{
-			//los movimientos que son de mitad para abajo son el tamaño - la posicion (ver dibu ipad :) )
+			// los movimientos que son de mitad para abajo son el tamaño
+				// la posicion (ver dibu ipad :) )
 			(*stack)->moves.rrb = (size - pos);
 			(*stack)->moves.rb = 0;
 		}
@@ -91,7 +93,7 @@ int	calcular_pareja(int a, int b_now, int b_before)
 	}
 }
 
-void join_moves(t_stack **stack_a)
+void	join_moves(t_stack **stack_a)
 {
 	while ((*stack_a)->moves.ra > 0 && (*stack_a)->moves.rb > 0)
 	{
@@ -107,12 +109,11 @@ void join_moves(t_stack **stack_a)
 	}
 }
 
-int	calcular_coste_hasta_pareja(t_stack	**stack_a, t_stack *stack_b, int num)
+int	calcular_coste_hasta_pareja(t_stack **stack_a, t_stack *stack_b, int num)
 {
 	int	cost;
 
 	cost = 1;
-	
 	while (stack_b)
 	{
 		if (num == stack_b->content)
@@ -127,7 +128,10 @@ int	calcular_coste_hasta_pareja(t_stack	**stack_a, t_stack *stack_b, int num)
 	}
 	join_moves(stack_a);
 	(*stack_a)->moves.pb = 1;
-	cost = ((*stack_a)->moves.pb + (*stack_a)->moves.ra + (*stack_a)->moves.rra + (*stack_a)->moves.rb + (*stack_a)->moves.rrb + (*stack_a)->moves.rr + (*stack_a)->moves.rrr + (*stack_a)->moves.sa + (*stack_a)->moves.sb);
+	cost = ((*stack_a)->moves.pb + (*stack_a)->moves.ra + (*stack_a)->moves.rra
+			+ (*stack_a)->moves.rb + (*stack_a)->moves.rrb
+			+ (*stack_a)->moves.rr + (*stack_a)->moves.rrr
+			+ (*stack_a)->moves.sa + (*stack_a)->moves.sb);
 	return (cost);
 }
 
@@ -147,8 +151,9 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 		*stack_b = (*stack_b)->next;
 		while (*stack_b)
 		{
-			num = calcular_pareja((*stack_a)->content, (*stack_b)->content, num);
-			printf("%d ----> %d\n",(*stack_a)->content , num);
+			num = calcular_pareja((*stack_a)->content, (*stack_b)->content,
+					num);
+			printf("%d ----> %d\n", (*stack_a)->content, num);
 			*stack_b = (*stack_b)->next;
 		}
 		(*stack_a)->cost = calcular_coste_hasta_pareja(stack_a, head_b, num);
@@ -160,10 +165,10 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = head_b;
 }
 
-int encontrar_el_mas_barato(t_stack *stack_a)
+int	encontrar_el_mas_barato(t_stack *stack_a)
 {
-	int before_cost;
-	int nb;
+	int	before_cost;
+	int	nb;
 
 	before_cost = stack_a->cost;
 	nb = stack_a->content;
@@ -180,14 +185,14 @@ int encontrar_el_mas_barato(t_stack *stack_a)
 	return (nb);
 }
 
-void mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
+void	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
 {
-	t_stack *head;
+	t_stack	*head;
 
 	head = *stack_a;
 	while (*stack_a)
 	{
-		if((*stack_a)->content == nb)
+		if ((*stack_a)->content == nb)
 		{
 			while ((*stack_a)->moves.ra && (*stack_a)->moves.ra--)
 				rotate(stack_a, 'a', 1);
@@ -201,7 +206,7 @@ void mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
 				rotate_reverse(stack_b, 'b', 1);
 			while ((*stack_a)->moves.rrr && (*stack_a)->moves.rrr--)
 				rotate_reverse_both(stack_a, stack_b);
-			//push(stack_a, stack_b, 'b');
+			// push(stack_a, stack_b, 'b');
 		}
 		(*stack_a) = (*stack_a)->next;
 	}
