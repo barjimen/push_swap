@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/20 21:37:58 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/01 23:05:34 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,14 @@ void	order_nb(t_stack **stack_src, t_stack **stack_dst);
 void	order_three(t_stack *stack_src);
 
 void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b);
+int		calcular_pareja(int a, int b_now, int b_before);
 void	calcular_movimientos_a(t_stack **stack);
 void	calcular_movimientos_b(t_stack **stack);
 void	order_more(t_stack **stack_a, t_stack **stack_b);
 
 void 	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb);
 int 	encontrar_el_mas_barato(t_stack *stack_a);
+int		calcular_pareja_ba(int a, int b_now, int b_before);
+void	mover_nb_ba(t_stack **stack_a, t_stack **stack_b, int nb);
 
 #endif

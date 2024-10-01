@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 21:28:44 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/30 20:40:46 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/02 00:07:01 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,21 @@ void	push_cheap(t_stack **stack_a, t_stack **stack_b)
 void return_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int num;
+	t_stack *head_a;
 	
+	head_a = *stack_a;
 	num = (*stack_a)->content;
 	*stack_a = (*stack_a)->next;
 	while (*stack_a)
 	{
-		num = calcular_pareja((*stack_b)->content, (*stack_a)->content,
+		num = calcular_pareja_ba((*stack_b)->content, (*stack_a)->content,
 				num);//AQUI ESTAMOS :D
-		printf("%d ----> %d\n", (*stack_b)->content, num);
 		*stack_a = (*stack_a)->next;
 	}
-	(*stack_a)->cost = calcular_coste_hasta_pareja(stack_a, head_b, num);
-	*stack_b = head_b;
-	*stack_a = (*stack_a)->next;
-	pos++;
+	*stack_a = head_a;
+	calcular_movimientos_a(stack_a);
+	mover_nb_ba(stack_a, stack_b, num);
+	
 }
 
 void spin_stack()
@@ -77,7 +78,9 @@ void	order_more(t_stack **stack_a, t_stack **stack_b)
 	while (size-- > 3)
 		push_cheap(stack_a, stack_b);
 	order_three(*stack_a);
-	//return_to_a(stack_a, stack_b);
+	size = stack_size(*stack_b);
+	while (size-- > 0)
+		return_to_a(stack_a, stack_b);
 	//while (!is_it_ordered(stack_a))
-	//	spin_stack();
+	//	spin_stack();*/
 }

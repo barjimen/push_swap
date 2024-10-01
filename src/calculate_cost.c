@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/30 19:16:57 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/02 00:07:54 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,24 @@ int	calcular_pareja(int a, int b_now, int b_before)
 	}
 }
 
+int	calcular_pareja_ba(int a, int b_now, int b_before)
+{
+	if (b_before < b_now)
+	{
+		if (a < b_before && a > b_now)
+			return (b_before);
+		else
+			return (b_now);
+	}
+	else
+	{
+		if (a > b_before && a < b_now)
+			return (b_now);
+		else
+			return (b_before);
+	}
+}
+
 void	join_moves(t_stack **stack_a)
 {
 	while ((*stack_a)->moves.ra > 0 && (*stack_a)->moves.rb > 0)
@@ -127,11 +145,13 @@ int	calcular_coste_hasta_pareja(t_stack **stack_a, t_stack *stack_b, int num)
 		stack_b = stack_b->next;
 	}
 	join_moves(stack_a);
+	
 	(*stack_a)->moves.pb = 1;
 	cost = ((*stack_a)->moves.pb + (*stack_a)->moves.ra + (*stack_a)->moves.rra
 			+ (*stack_a)->moves.rb + (*stack_a)->moves.rrb
 			+ (*stack_a)->moves.rr + (*stack_a)->moves.rrr
 			+ (*stack_a)->moves.sa + (*stack_a)->moves.sb);
+	
 	return (cost);
 }
 
@@ -153,10 +173,11 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 		{
 			num = calcular_pareja((*stack_a)->content, (*stack_b)->content,
 					num);
-			printf("%d ----> %d\n", (*stack_a)->content, num);
+			//printf("%d ----> %d\n", (*stack_a)->content, num);
 			*stack_b = (*stack_b)->next;
 		}
 		(*stack_a)->cost = calcular_coste_hasta_pareja(stack_a, head_b, num);
+		printf("%d tiene coste %d\n", (*stack_a)->content, (*stack_a)->cost);
 		*stack_b = head_b;
 		*stack_a = (*stack_a)->next;
 		pos++;
@@ -182,10 +203,11 @@ int	encontrar_el_mas_barato(t_stack *stack_a)
 		}
 		stack_a = stack_a->next;
 	}
+	printf("%d AQUI EL BARATITO\n", nb);
 	return (nb);
 }
 
-void	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
+void	mover_nb_ba(t_stack **stack_a, t_stack **stack_b, int nb)
 {
 	t_stack	*head;
 
@@ -200,13 +222,42 @@ void	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
 				rotate(stack_b, 'b', 1);
 			while ((*stack_a)->moves.rr && (*stack_a)->moves.rr--)
 				rotate_both(stack_a, stack_b);
-			while ((*stack_a)->moves.rra && (*stack_a)->moves.rra--)
-				rotate_reverse(stack_a, 'a', 1);
 			while ((*stack_a)->moves.rrb && (*stack_a)->moves.rrb--)
 				rotate_reverse(stack_b, 'b', 1);
+			while ((*stack_a)->moves.rra && (*stack_a)->moves.rra--)
+				rotate_reverse(stack_a, 'a', 1);
 			while ((*stack_a)->moves.rrr && (*stack_a)->moves.rrr--)
 				rotate_reverse_both(stack_a, stack_b);
 			// push(stack_a, stack_b, 'b');
+		}
+		(*stack_a) = (*stack_a)->next;
+	}
+	*stack_a = head;
+	push(stack_b, stack_a, 'a');
+}
+
+void	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
+{
+	t_stack	*head;
+
+	head = *stack_a;
+	
+	while (*stack_a)
+	{
+		if ((*stack_a)->content == nb)
+		{
+			while ((*stack_a)->moves.ra && (*stack_a)->moves.ra--)
+				rotate(stack_a, 'a', 1);
+			while ((*stack_a)->moves.rb && (*stack_a)->moves.rb--)
+				rotate(stack_b, 'b', 1);
+			while ((*stack_a)->moves.rr && (*stack_a)->moves.rr--)
+				rotate_both(stack_a, stack_b);
+			while ((*stack_a)->moves.rrb && (*stack_a)->moves.rrb--)
+				rotate_reverse(stack_b, 'b', 1);
+			while ((*stack_a)->moves.rra && (*stack_a)->moves.rra--)
+				rotate_reverse(stack_a, 'a', 1);
+			while ((*stack_a)->moves.rrr && (*stack_a)->moves.rrr--)
+				rotate_reverse_both(stack_a, stack_b);
 		}
 		(*stack_a) = (*stack_a)->next;
 	}
