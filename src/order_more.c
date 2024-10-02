@@ -6,12 +6,11 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 21:28:44 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/02 00:07:01 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:26:44 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
 
 void	reset_moves(t_stack **stack)
 {
@@ -43,29 +42,27 @@ void	push_cheap(t_stack **stack_a, t_stack **stack_b)
 	reset_moves(stack_b);
 }
 
-void return_to_a(t_stack **stack_a, t_stack **stack_b)
+void	return_to_a(t_stack **stack_a, t_stack **stack_b)
 {
-	int num;
-	t_stack *head_a;
-	
+	int		num;
+	t_stack	*head_a;
+
 	head_a = *stack_a;
 	num = (*stack_a)->content;
 	*stack_a = (*stack_a)->next;
 	while (*stack_a)
 	{
 		num = calcular_pareja_ba((*stack_b)->content, (*stack_a)->content,
-				num);//AQUI ESTAMOS :D
+				num);
 		*stack_a = (*stack_a)->next;
 	}
 	*stack_a = head_a;
 	calcular_movimientos_a(stack_a);
 	mover_nb_ba(stack_a, stack_b, num);
-	
 }
 
-void spin_stack()
+void	spin_stack(void)
 {
-	
 }
 
 void	order_more(t_stack **stack_a, t_stack **stack_b)
@@ -80,7 +77,7 @@ void	order_more(t_stack **stack_a, t_stack **stack_b)
 	order_three(*stack_a);
 	size = stack_size(*stack_b);
 	while (size-- > 0)
-		return_to_a(stack_a, stack_b);
-	//while (!is_it_ordered(stack_a))
-	//	spin_stack();*/
+		 return_to_a(stack_a, stack_b);
+	// while (!is_it_ordered(stack_a))
+	spin_stack();
 }
