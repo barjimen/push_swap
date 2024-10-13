@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 00:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/20 20:02:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:22:02 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	search_small(t_stack **stack_src)
 {
 	t_stack	*aux;
-	int		pos;		
+	int		pos;
 	int		nb;
 
 	aux = *stack_src;
@@ -69,7 +69,7 @@ void	order_three(t_stack *stack_src)
 	nb_one = stack_src->content;
 	nb_two = stack_src->next->content;
 	nb_three = stack_src->next->next->content;
-	if (nb_one < nb_two &&  nb_two < nb_three)
+	if (nb_one < nb_two && nb_two < nb_three)
 		return ;
 	if (nb_one > nb_two && nb_one > nb_three)
 	{

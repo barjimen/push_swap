@@ -6,21 +6,26 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:39:06 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/19 18:43:35 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:02:24 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
 //      " ", +-, nb, cualquier otra cosa
+// primera linea es 0 -> empty
+// segunda linea es 1 -> found sing
+// tercera linea es 2 -> invalid chr
+// cuarta linea es 3 -> number
+// quinta linea es 4 -> space between number
 int	get_state(int x, int y)
 {
 	const int	states[][4] = {
-		{0, 1, 3, 2}, // 0 empty
-		{2, 2, 3, 2}, // 1 found sign
-		{2, 2, 2, 2}, // 2 invalid chr
-		{4, 2, 3, 2}, // 3 nb
-		{4, 1, 3, 2}, // 4 space between nb
+	{0, 1, 3, 2},
+	{2, 2, 3, 2},
+	{2, 2, 2, 2},
+	{4, 2, 3, 2},
+	{4, 1, 3, 2},
 	};
 
 	return (states[x][y]);

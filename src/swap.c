@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 21:51:34 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/08 21:13:46 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:21:14 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	swap_both(t_stack *stack_a, t_stack *stack_b)
 		aux = stack_a->content;
 		stack_a->content = stack_a->next->content;
 		stack_a->next->content = aux;
-
 		aux = stack_b->content;
 		stack_b->content = stack_b->next->content;
 		stack_b->next->content = aux;

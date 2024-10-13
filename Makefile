@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 22:02:36 by barjimen          #+#    #+#              #
-#    Updated: 2024/09/16 22:32:50 by barjimen         ###   ########.fr        #
+#    Updated: 2024/10/13 20:58:13 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,8 @@
 						order_nb				\
 						calculate_cost			\
 						order_more				\
+						move_and_pairs			\
+						spin_stack				\
 
 #--- File variables
 

@@ -6,27 +6,27 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 00:11:07 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/16 22:28:27 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:20:48 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-//Función para crear un nodo
+// Función para crear un nodo
 t_stack	*new_wagon(int content)
 {
 	t_stack	*memi;
 
-	memi = (t_stack *) ft_calloc(sizeof (t_stack), 1);
+	memi = (t_stack *)ft_calloc(sizeof(t_stack), 1);
 	if (!memi)
 		return (NULL);
 	memi->content = content;
-    memi->prev = NULL;
+	memi->prev = NULL;
 	memi->next = NULL;
 	return (memi);
 }
 
-//Función para saber el tamaño de una lista
+// Función para saber el tamaño de una lista
 int	stack_size(t_stack *lst)
 {
 	int		cont;
@@ -69,5 +69,5 @@ void	add_last_wagon(t_stack **lst, t_stack *new)
 	}
 	lstaux = last_wagon(*lst);
 	lstaux->next = new;
-    new->prev = lstaux;
+	new->prev = lstaux;
 }

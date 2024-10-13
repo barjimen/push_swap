@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:36:59 by barjimen          #+#    #+#             */
-/*   Updated: 2024/08/30 00:52:14 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:03:17 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,20 @@ void	init_errors(t_automata *a)
 	a->errors[3] = NULL;
 	a->errorlen = 2;
 }
-
-void	init_simple_actions(t_automata *a)
-{
-	(void)a;
 	/*a->fsa[EMPTY] = print_state;
 	a->fsa[NUMBER] = print_state;
 	a->fsa[INVALID] = print_state;
 	a->fsa[SPACE] = print_state;
 	a->fsa[SIGN] = print_state;*/
+
+void	init_simple_actions(t_automata *a)
+{
+	(void)a;
 }
 
 void	init_transition_actions(t_automata *a)
 {
 	a->fta[NUMBER][SPACE] = test;
-	//(void)a;
 }
 
 void	automata_init(t_automata *a, void *data)

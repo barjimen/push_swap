@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aut_actions.c                                      :+:      :+:    :+:   */
+/*   spin_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/17 19:37:51 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 20:59:19 by barjimen         ###   ########.fr       */
+/*   Created: 2024/10/13 20:55:25 by barjimen          #+#    #+#             */
+/*   Updated: 2024/10/13 20:55:36 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void	print_state(t_automata *a, void *data)
+void	spin_number(t_stack **stack_a, int pos)
 {
-	(void)data;
-	printf("state: %d\n", a->state);
+	t_stack	*head;
+	t_moves	moves;
+
+	head = *stack_a;
+	while (pos--)
+		head = head->next;
+	moves = head->moves;
+	while (moves.ra--)
+		rotate(stack_a, 'a', 1);
+	while (moves.rra--)
+		rotate_reverse(stack_a, 'a', 1);
 }
 
-void	test(t_automata *a, void *data)
+void	spin_stack(t_stack **stack_a)
 {
-	t_stack	**list;
-	int		numb;
-
-	numb = ft_atoi(a->str + a->j);
-	list = (t_stack **)data;
-	add_last_wagon(list, new_wagon(numb));
-	a->j = a->i;
+	calcular_movimientos_a(stack_a);
+	spin_number(stack_a, search_small(stack_a));
 }

@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 21:28:44 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 01:21:07 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 20:55:15 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,27 +58,6 @@ void	return_to_a(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = head_a;
 	calcular_movimientos_a(stack_a);
 	mover_nb_ba(stack_a, stack_b, num);
-}
-
-void spin_number(t_stack **stack_a, int pos)
-{
-	t_stack	*head;
-	t_moves moves;
-
-	head = *stack_a;
-	while (pos--)
-		head = head->next;
-	moves = head->moves;
-	while (moves.ra--)
-		rotate(stack_a, 'a', 1);
-	while (moves.rra--)
-		rotate_reverse(stack_a, 'a', 1);
-}
-
-void	spin_stack(t_stack **stack_a)
-{
-	calcular_movimientos_a(stack_a);
-	spin_number(stack_a, search_small(stack_a));
 }
 
 void	order_more(t_stack **stack_a, t_stack **stack_b)
