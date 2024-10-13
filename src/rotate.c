@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 20:58:24 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/04 00:10:10 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 00:50:57 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,13 @@ void	rotate_reverse(t_stack **stack_src, char name, int print)
 
 void	rotate_reverse_both(t_stack **stack_a, t_stack **stack_b)
 {
-	if (stack_size(*stack_a) > 1 && stack_size(*stack_b) > 1)
-	{
+	
+	//if (stack_size(*stack_a) > 1 && stack_size(*stack_b) > 1)
+	//{
 		rotate_reverse(stack_a, 'r', 0);
 		rotate_reverse(stack_b, 'r', 0);
 		printf("rrr\n");
-	}
-	else
-		printf("unable to reverse rotate both\n");
+	//}
+	//else
+	//	printf("unable to reverse rotate both\n");
 }

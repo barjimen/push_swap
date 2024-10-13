@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/01 23:05:34 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 01:12:16 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,7 @@ void 	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb);
 int 	encontrar_el_mas_barato(t_stack *stack_a);
 int		calcular_pareja_ba(int a, int b_now, int b_before);
 void	mover_nb_ba(t_stack **stack_a, t_stack **stack_b, int nb);
+
+int		search_small(t_stack **stack_src);
 
 #endif

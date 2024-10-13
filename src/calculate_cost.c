@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/02 20:35:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/13 01:04:43 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	calcular_movimientos_a(t_stack **stack)
 	}
 	*stack = head;
 }
+
 void	calcular_movimientos_b(t_stack **stack)
 {
 	t_stack	*head;
@@ -232,28 +233,26 @@ void	mover_nb_ba(t_stack **stack_a, t_stack **stack_b, int nb)
 void	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
 {
 	t_stack	*head;
-
-	head = *stack_a;
+	t_moves moves;
 	
-	while (*stack_a)
+	head = *stack_a;
+	while (head)
 	{
-		if ((*stack_a)->content == nb)
-		{
-			while ((*stack_a)->moves.ra && (*stack_a)->moves.ra--)
-				rotate(stack_a, 'a', 1);
-			while ((*stack_a)->moves.rb && (*stack_a)->moves.rb--)
-				rotate(stack_b, 'b', 1);
-			while ((*stack_a)->moves.rr && (*stack_a)->moves.rr--)
-				rotate_both(stack_a, stack_b);
-			while ((*stack_a)->moves.rrb && (*stack_a)->moves.rrb--)
-				rotate_reverse(stack_b, 'b', 1);
-			while ((*stack_a)->moves.rra && (*stack_a)->moves.rra--)
-				rotate_reverse(stack_a, 'a', 1);
-			while ((*stack_a)->moves.rrr && (*stack_a)->moves.rrr--)
-				rotate_reverse_both(stack_a, stack_b);
-		}
-		(*stack_a) = (*stack_a)->next;
+		if (head->content == nb)
+			moves = head->moves;
+		head = head->next;
 	}
-	*stack_a = head;
+	while (moves.ra--)
+		rotate(stack_a, 'a', 1);
+	while (moves.rb--)
+		rotate(stack_b, 'b', 1);
+	while (moves.rr--)
+		rotate_both(stack_a, stack_b);
+	while (moves.rrb--)
+		rotate_reverse(stack_b, 'b', 1);
+	while (moves.rra--)
+		rotate_reverse(stack_a, 'a', 1);
+	while (moves.rrr--)
+		rotate_reverse_both(stack_a, stack_b);
 	push(stack_a, stack_b, 'b');
 }
