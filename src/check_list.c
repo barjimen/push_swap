@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 21:26:14 by barjimen          #+#    #+#             */
-/*   Updated: 2024/09/04 00:25:45 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/17 17:46:43 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void	duplicated_nb(t_stack **stack_src)
 			if (aux->content == check->content)
 			{
 				printf("DUPLICATED NB!\n");
+				exit(EXIT_SUCCESS);
+			}
+			else if (aux->content > INT_MAX) //NO ESTA FUNCIONANDO TIENE QUE DAR ERROR
+			{
+				printf("INT MAX ERROR!\n");
 				exit(EXIT_SUCCESS);
 			}
 			check = check->next;
