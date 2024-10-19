@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:16:49 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 20:51:01 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:33:54 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,26 @@ void	free_stack(t_stack **list)
 	}
 }
 
-void	arg_handler(t_automata *a, int argc, char **argv, t_stack **stack)
+int	arg_handler(t_automata *a, int argc, char **argv, t_stack **stack)
 {
 	int	state;
 	int	i;
 
 	i = 1;
 	if (argc < 2)
-		return ;
+		return (1);
 	while (argv[i])
 	{
 		automata_init(a, stack);
 		a->str = argv[i++];
 		state = evaluate(a);
 		if (state == NUMBER)
-			test(a, a->data);
-		print_out_error(a, state);
+			save_numbers(a, a->data);
+		if (print_out_error(a, state))
+			exit_msg(NULL);
 		free_aut(a);
 	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -54,9 +56,11 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	arg_handler(&a, argc, argv, &stack_a);
-	check_list(&stack_a);
-	order_nb(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+	if (!arg_handler(&a, argc, argv, &stack_a))
+	{
+		check_list(&stack_a);
+		order_nb(&stack_a, &stack_b);
+		free_stack(&stack_a);
+		free_stack(&stack_b);
+	}
 }

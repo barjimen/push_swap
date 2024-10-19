@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:39:06 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 21:02:24 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:28:37 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,31 @@ void	free_aut(t_automata *a)
 {
 	int	i;
 
-	i = 0;
-	while (a->alphabet[i])
+	if (a->alphabet)
 	{
-		free(a->alphabet[i]);
-		i++;
+		i = 0;
+		while (a->alphabet[i])
+		{
+			free(a->alphabet[i]);
+			i++;
+		}
+		free(a->alphabet);
 	}
-	free(a->alphabet);
-	i = 0;
-	while (a->errors[i])
+	if (a->errors)
 	{
-		free(a->errors[i]);
-		i++;
+		i = 0;
+		while (a->errors[i])
+		{
+			free(a->errors[i]);
+			i++;
+		}
+		free(a->errors);
 	}
-	free(a->errors);
 }
 
 int	print_out_error(t_automata *a, int state)
 {
 	if (state <= a->errorlen)
-		return (ft_printf("%s\n", a->errors[state]));
+		return (exit_msg(NULL));
 	return (0);
 }

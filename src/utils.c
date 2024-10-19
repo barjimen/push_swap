@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 12:32:34 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/19 21:56:16 by barjimen         ###   ########.fr       */
+/*   Created: 2024/10/19 22:05:27 by barjimen          #+#    #+#             */
+/*   Updated: 2024/10/19 22:06:20 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/push_swap.h"
 
-int	ft_atoi(const char *str)
+int	exit_msg(char *msg)
+{
+	ft_putendl_fd("Error", 2);
+	ft_putendl_fd(msg, 2);
+	exit(EXIT_SUCCESS);
+}
+
+int	ft_atoi_ps(const char *str)
 {
 	int			x;
 	long int	nb;
@@ -33,7 +40,7 @@ int	ft_atoi(const char *str)
 	{
 		nb = (str[x++] - '0') + (nb * 10);
 		if ((nb > 2147483647 && sym == 1) || (nb > 2147483648 && sym == -1))
-			return (EXIT_SUCCESS);
+			exit_msg(NULL);
 	}
 	nb *= sym;
 	return (nb);

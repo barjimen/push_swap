@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 19:36:59 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 21:03:17 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:29:14 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,8 @@ void	init_alphabet(t_automata *a)
 
 void	init_errors(t_automata *a)
 {
-	a->errors = malloc(4 * sizeof(char *));
-	a->errors[0] = ft_strdup("Empty argument!");
-	a->errors[1] = ft_strdup("sign found at the end!");
-	a->errors[2] = ft_strdup("Invalid character!");
-	a->errors[3] = NULL;
 	a->errorlen = 2;
 }
-	/*a->fsa[EMPTY] = print_state;
-	a->fsa[NUMBER] = print_state;
-	a->fsa[INVALID] = print_state;
-	a->fsa[SPACE] = print_state;
-	a->fsa[SIGN] = print_state;*/
 
 void	init_simple_actions(t_automata *a)
 {
@@ -43,7 +33,7 @@ void	init_simple_actions(t_automata *a)
 
 void	init_transition_actions(t_automata *a)
 {
-	a->fta[NUMBER][SPACE] = test;
+	a->fta[NUMBER][SPACE] = save_numbers;
 }
 
 void	automata_init(t_automata *a, void *data)

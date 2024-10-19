@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 21:26:14 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/17 17:46:43 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:30:44 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,7 @@ void	duplicated_nb(t_stack **stack_src)
 		while (check)
 		{
 			if (aux->content == check->content)
-			{
-				printf("DUPLICATED NB!\n");
-				exit(EXIT_SUCCESS);
-			}
-			else if (aux->content > INT_MAX) //NO ESTA FUNCIONANDO TIENE QUE DAR ERROR
-			{
-				printf("INT MAX ERROR!\n");
-				exit(EXIT_SUCCESS);
-			}
+				exit_msg(NULL);
 			check = check->next;
 		}
 		aux = aux->next;
@@ -62,10 +54,7 @@ void	duplicated_nb(t_stack **stack_src)
 void	check_list(t_stack **stack_src)
 {
 	if (stack_size(*stack_src) < 2)
-	{
-		printf("ERROR: List to short!\n");
-		exit(EXIT_SUCCESS);
-	}
+		exit_msg(NULL);
 	duplicated_nb(stack_src);
 	if (is_it_ordered(stack_src))
 		exit(EXIT_SUCCESS);

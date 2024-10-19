@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:13:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 20:57:02 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:13:21 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void				test(t_automata *a, void *data);
+void				save_numbers(t_automata *a, void *data);
 void				print_state(t_automata *a, void *data);
 t_stack				*new_wagon(int content);
 int					stack_size(t_stack *lst);
@@ -109,5 +109,8 @@ int					search_small(t_stack **stack_src);
 void				join_moves(t_stack **stack_a);
 void				spin_number(t_stack **stack_a, int pos);
 void				spin_stack(t_stack **stack_a);
+
+int					ft_atoi_ps(const char *str);
+int					exit_msg(char *msg);
 
 #endif
