@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 21:28:44 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 20:55:15 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/11/24 18:57:52 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	reset_moves(t_stack **stack)
 
 void	push_cheap(t_stack **stack_a, t_stack **stack_b)
 {
-	calcular_movimientos_a(stack_a);
-	calcular_movimientos_b(stack_b);
-	calcular_costes_parejas(stack_a, stack_b);
-	mover_nb(stack_a, stack_b, encontrar_el_mas_barato(*stack_a));
+	calculate_movements_a(stack_a);
+	calculate_movements_b(stack_b);
+	calculate_cost_partners(stack_a, stack_b);
+	move_nb(stack_a, stack_b, find_the_cheapest(*stack_a));
 	reset_moves(stack_a);
 	reset_moves(stack_b);
 }
@@ -52,12 +52,13 @@ void	return_to_a(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = (*stack_a)->next;
 	while (*stack_a)
 	{
-		num = calcular_pareja_ba((*stack_b)->content, (*stack_a)->content, num);
+		num = calculate_couple_ba((*stack_b)->content, (*stack_a)->content,
+				num);
 		*stack_a = (*stack_a)->next;
 	}
 	*stack_a = head_a;
-	calcular_movimientos_a(stack_a);
-	mover_nb_ba(stack_a, stack_b, num);
+	calculate_movements_a(stack_a);
+	move_nb_ba(stack_a, stack_b, num);
 }
 
 void	order_more(t_stack **stack_a, t_stack **stack_b)

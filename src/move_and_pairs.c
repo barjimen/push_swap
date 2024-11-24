@@ -6,13 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:30 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 20:57:48 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/11/24 18:56:46 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	calcular_coste_hasta_pareja(t_stack **stack_a, t_stack *stack_b, int num)
+int	calculate_cost_to_partner(t_stack **stack_a, t_stack *stack_b, int num)
 {
 	int	cost;
 
@@ -38,7 +38,7 @@ int	calcular_coste_hasta_pareja(t_stack **stack_a, t_stack *stack_b, int num)
 	return (cost);
 }
 
-void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
+void	calculate_cost_partners(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*head_a;
 	t_stack	*head_b;
@@ -54,11 +54,11 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 		*stack_b = (*stack_b)->next;
 		while (*stack_b)
 		{
-			num = calcular_pareja((*stack_a)->content, (*stack_b)->content,
+			num = calculate_couple((*stack_a)->content, (*stack_b)->content,
 					num);
 			*stack_b = (*stack_b)->next;
 		}
-		(*stack_a)->cost = calcular_coste_hasta_pareja(stack_a, head_b, num);
+		(*stack_a)->cost = calculate_cost_to_partner(stack_a, head_b, num);
 		*stack_b = head_b;
 		*stack_a = (*stack_a)->next;
 		pos++;
@@ -67,7 +67,7 @@ void	calcular_costes_parejas(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = head_b;
 }
 
-int	encontrar_el_mas_barato(t_stack *stack_a)
+int	find_the_cheapest(t_stack *stack_a)
 {
 	int	before_cost;
 	int	nb;
@@ -87,7 +87,7 @@ int	encontrar_el_mas_barato(t_stack *stack_a)
 	return (nb);
 }
 
-void	mover_nb_ba(t_stack **stack_a, t_stack **stack_b, int nb)
+void	move_nb_ba(t_stack **stack_a, t_stack **stack_b, int nb)
 {
 	t_stack	*head;
 	t_moves	moves;
@@ -109,7 +109,7 @@ void	mover_nb_ba(t_stack **stack_a, t_stack **stack_b, int nb)
 	push(stack_b, stack_a, 'a');
 }
 
-void	mover_nb(t_stack **stack_a, t_stack **stack_b, int nb)
+void	move_nb(t_stack **stack_a, t_stack **stack_b, int nb)
 {
 	t_stack	*head;
 	t_moves	moves;

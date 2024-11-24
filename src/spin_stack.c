@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:55:25 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 20:55:36 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/11/24 18:57:13 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void	spin_number(t_stack **stack_a, int pos)
 
 void	spin_stack(t_stack **stack_a)
 {
-	calcular_movimientos_a(stack_a);
+	calculate_movements_a(stack_a);
 	spin_number(stack_a, search_small(stack_a));
 }

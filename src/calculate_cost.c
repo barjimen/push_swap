@@ -6,13 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:30:37 by barjimen          #+#    #+#             */
-/*   Updated: 2024/10/13 20:50:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2024/11/24 18:57:31 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	calcular_movimientos_a(t_stack **stack)
+void	calculate_movements_a(t_stack **stack)
 {
 	t_stack	*head;
 	int		size;
@@ -39,7 +39,7 @@ void	calcular_movimientos_a(t_stack **stack)
 	*stack = head;
 }
 
-void	calcular_movimientos_b(t_stack **stack)
+void	calculate_movements_b(t_stack **stack)
 {
 	t_stack	*head;
 	int		size;
@@ -66,7 +66,7 @@ void	calcular_movimientos_b(t_stack **stack)
 	*stack = head;
 }
 
-int	calcular_pareja(int a, int b_now, int b_before)
+int	calculate_couple(int a, int b_now, int b_before)
 {
 	if (b_before > b_now)
 	{
@@ -84,7 +84,7 @@ int	calcular_pareja(int a, int b_now, int b_before)
 	}
 }
 
-int	calcular_pareja_ba(int a, int b_now, int b_before)
+int	calculate_couple_ba(int a, int b_now, int b_before)
 {
 	if (b_before < b_now)
 	{
